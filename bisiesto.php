@@ -10,7 +10,6 @@
     }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,6 @@
         Año <input type="number" name="a">
         <button>Comprobar</button>
     </form>
-
     <?php if($bisiesto): ?>
         <p>Es bisiesto</p>
     <?php else: ?>
