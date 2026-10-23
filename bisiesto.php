@@ -1,34 +1,31 @@
 <?php
     if(!empty($_GET)){
-        $a = $_GET['a'];
-
+        $a=$_GET['a'];
         if(($a % 4 == 0 && $a % 100 != 0) || $a % 400 == 0){
-            $bisiesto = true;
+            $bisiesto=true;
         }else{
-            $bisiesto = false;
+            $bisiesto=false;
         }
     }
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bisiesto</title>
+    <title>Document</title>
 </head>
 <body>
     <form method="GET" action="">
-        Año <input type="number" name="a" required>
-        <button type="submit">Comprobar</button>
+        Año <input type="number" name="a">
+        <button>Comprobar</button>
     </form>
 
-    <?php if(isset($bisiesto)): ?>
-        <?php if($bisiesto): ?>
-            <p>Es bisiesto</p>
-        <?php else: ?>
-            <p>No es bisiesto</p>
-        <?php endif; ?>
+    <?php if($bisiesto): ?>
+        <p>Es bisiesto</p>
+    <?php else: ?>
+        <p>No es bisiesto</p>
     <?php endif; ?>
 </body>
 </html>
