@@ -21,7 +21,7 @@
 
 <body>
     <form method="GET" action="">
-        Año <input type="number" name="a">
+        Año <input type="number" name="a" placeholder="<?= isset($a) ? $a : ''?>">
         <button>Comprobar</button>
     </form>
 
