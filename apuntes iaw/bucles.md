@@ -41,3 +41,15 @@
     }
 ?>
 ```
+
+## 3. Este sirve para saludar a cada persona (\n sirve para que salga en columna)
+
+```php
+<?php
+
+	$nombres=['Pepe', 'Marta', 'José'];
+	foreach($nombres as $nombre){
+		echo "Hola ".$nombre."\n";
+		}	
+?>
+```
