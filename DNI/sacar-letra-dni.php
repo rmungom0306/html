@@ -1,7 +1,7 @@
 <?php
 
 /**
- * letra_dni
+ * letra_dni: Usando array de letras
  */
 function letra_dni($dni)
 {
@@ -10,6 +10,16 @@ function letra_dni($dni)
     $resto = $dni % 23;
 
     return $letras[$resto];
+}
+
+/**
+ * letra_dni_2: Usando cadena de caracteres
+ */
+function letra_dni_2($dni)
+{
+    $letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
+
+    return $letras[$dni % 23];
 }
 
 ?>
@@ -43,16 +53,17 @@ function letra_dni($dni)
 <body>
 
     <form method="POST" action="">
-        <input type="number" name="dni" placeholder="Introduce los números">
-        <button>Calcular</button>
+        <input type="number" name="dni" placeholder="Introduce los números" min="0" max="99999999" required>
+        <button type="submit">Calcular</button>
     </form>
 
-    <?php if (isset($_POST['dni']) && $_POST['dni'] !== ''): ?>
+    <?php if (isset($_POST['dni']) && $_POST['dni'] !== '' && is_numeric($_POST['dni']) && $_POST['dni'] >= 0 && $_POST['dni'] <= 99999999): ?>
 
-        <p>
-            La letra de tu DNI es:
-            <?= letra_dni($_POST['dni']) ?>
-        </p>
+        <p>La letra es <?= letra_dni_2((int)$_POST['dni']) ?></p>
+
+    <?php elseif (isset($_POST['dni'])): ?>
+
+        <p>DNI incorrecto</p>
 
     <?php endif; ?>
 
