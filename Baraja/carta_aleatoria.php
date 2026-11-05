@@ -1,14 +1,28 @@
 <?php
-$palos=['c','p','d','t'];
+$palos = ['c', 'p', 'd', 't'];
+$cartas = [];
+
+while(count($cartas) < 5) {
+    $carta = $palos[rand(0,3)] . rand(1,13);
+
+    if(!in_array($carta, $cartas)) {
+        $cartas[] = $carta;
+    }
+}
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Póker</title>
 </head>
 <body>
-    <img style="height: 400px;" src="cartas/<?= $palos[rand(0,3)].rand(1,13) ?>.svg">
+
+    <?php foreach($cartas as $carta): ?>
+        <img style="height: 200px;" src="cartas/<?= $carta ?>.svg">
+    <?php endforeach; ?>
+
 </body>
 </html>
